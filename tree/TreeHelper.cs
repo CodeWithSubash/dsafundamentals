@@ -75,13 +75,13 @@ namespace tree
         /// Create Tree (Starting from root as array[0])
         /// </summary>
         /// <returns></returns>
-        public static Node CreateTree(int[] arr, int index=0, Node current=null)
+        public static Node CreateCompleteBinaryTree(int[] arr, int index=0, Node current=null)
         {
             if (index < arr.Length)
             {
                 current = new Node(arr[index]);
-                current.Left = CreateTree(arr, 2 * index + 1, current.Left);
-                current.Right = CreateTree(arr, 2 * index + 2, current.Right);
+                current.Left = CreateCompleteBinaryTree(arr, 2 * index + 1, current.Left);
+                current.Right = CreateCompleteBinaryTree(arr, 2 * index + 2, current.Right);
             }
             return current;
         }

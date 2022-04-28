@@ -21,7 +21,7 @@ namespace tree
 
         public void Traverse(TreeTraversal dir = TreeTraversal.InTraversal)
         {
-            Console.Write($"{Environment.NewLine}{dir} Traversal: ");
+            Console.Write($"{Environment.NewLine}{dir}: ");
             switch (dir)
             {
                 case TreeTraversal.PreTraversal:
@@ -63,8 +63,8 @@ namespace tree
                 return;
             }
             Visit(node);
-            InTraversal(node.Left);
-            InTraversal(node.Right);
+            PreTraversal(node.Left);
+            PreTraversal(node.Right);
         }
 
         private void PostTraversal(Node node)
@@ -73,8 +73,8 @@ namespace tree
             {
                 return;
             }
-            InTraversal(node.Left);
-            InTraversal(node.Right);
+            PostTraversal(node.Left);
+            PostTraversal(node.Right);
             Visit(node);
         }
 
@@ -127,7 +127,7 @@ namespace tree
                 Node current = q.Dequeue();
                 if (current.Level > currentLevel)
                 {
-                    Console.WriteLine(Environment.NewLine);
+                    Console.WriteLine();
                     currentLevel++;
                 }
                 Visit(current);
