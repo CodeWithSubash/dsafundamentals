@@ -13,17 +13,6 @@ namespace graph
             int numberOfVertices = Convert.ToInt32(data[0]);
             int numberOfEdges = Convert.ToInt32(data[1]);
 
-            // Method1
-            //Graph graphObject = new Graph(numberOfVertices);
-            //for (int i = 2; i < data.Count; i++)
-            //{
-            //    string[] item = data[i].Split(' ');
-            //    int u = Convert.ToInt32(item[0]);
-            //    int v = Convert.ToInt32(item[1]);
-            //    graphObject.AddEdge(u, v);
-            //}
-
-            // Method2
             int[][] edges = new int[numberOfEdges][];
             for (int i = 2; i < data.Count; i++)
             {
@@ -31,10 +20,18 @@ namespace graph
                 edges[i - 2] = new int[] { Convert.ToInt32(item[0]), Convert.ToInt32(item[1]) };
             }
             //Graph graphObject = new Graph(numberOfVertices, edges);
-            Graph graphObject = new Graph(edges);
+            //Graph graphObject = new Graph(edges);
+            //graphObject.DisplayEdges();
 
-            // Print all the edges
-            graphObject.DisplayEdges();
+
+            // Traverse a Graph
+            int[][] ed = { new[] { 0, 1 }, new[] { 0, 2 }, new[] { 2, 4 }, new[] {1,3 }, new[] { 3,5} };
+            Console.WriteLine("Graph Depth Traverse :");
+            Traversal.DepthWise(6, ed);
+            Console.WriteLine("Recursive Depth Traverse :");
+            Traversal.DepthWise(6, ed, true);
+            Console.WriteLine("Graph Breadth Traverse :");
+            Traversal.BreadthWise(6, ed);
             Console.Read();
         }
 
