@@ -17,15 +17,6 @@ namespace graph
             }
         }
 
-        public Graph(int[] points)
-        {
-            data = new Dictionary<int, List<int>>(points.Length);
-            for (int i = 0; i < points.Length; i++)
-            {
-                data.Add(points[i], new List<int>());
-            }
-        }
-
         // Create Graph from given number of nodes ranging from (0 to n-1) and the edges array
         public Graph(int n, int[][] edges)
         {
@@ -39,24 +30,6 @@ namespace graph
             {
                 data[edge[0]].Add(edge[1]);
                 //data[edge[1]].Add(edge[0]);
-            }
-        }
-
-        // Create Graph from given number of nodes ranging from (0 to n-1) and the edges array
-        public Graph(int[][] edges)
-        {
-            // construct the dictionary of each nodes with empty edges
-            data = new Dictionary<int, List<int>>();
-            foreach (var edge in edges)
-            {
-                if (data.TryGetValue(edge[0], out List<int> vertexes))
-                {
-                    vertexes.Add(edge[1]);
-                }
-                else
-                {
-                    data.Add(edge[0], new List<int>() { edge[1] });
-                }
             }
         }
 
@@ -92,7 +65,7 @@ namespace graph
         {
             for (int vertex = 0; vertex < Vertices; vertex++)
             {
-                if(Edges(vertex) != null)
+                if (Edges(vertex) != null)
                 {
                     foreach (int edge in Edges(vertex))
                     {

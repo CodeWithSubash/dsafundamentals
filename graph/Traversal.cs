@@ -8,22 +8,23 @@ namespace graph
 {
     public class Traversal
     {
-        public static void DepthWise(int n, int[][] edges, bool recursive = false)
+        public static Dictionary<int, List<int>> GetGraph(int n, int[][] edges)
         {
-            var adjList = CreateGraph(n, edges);
-            // Take the first [0] as starting point
-            int source = 0;
-            if (recursive)
+            // construct the dictionary of each nodes with empty edges
+            Dictionary<int, List<int>> data = new Dictionary<int, List<int>>();
+            for (int i = 0; i < n; i++)
             {
-                DepthFirstPrintRecursive(adjList, source);
+                data.Add(i, new List<int>());
             }
-            else
+            foreach (var edge in edges)
             {
-                DepthFirstPrint(adjList, source);
+                data[edge[0]].Add(edge[1]);
+                //data[edge[1]].Add(edge[0]);
             }
+            return data;
         }
 
-        private static void DepthFirstPrint(Dictionary<int, List<int>> adjList, int source)
+        public static void DepthFirstPrint(Dictionary<int, List<int>> adjList, int source)
         {
             Stack<int> bfs = new Stack<int>();
             bfs.Push(source);
@@ -38,7 +39,7 @@ namespace graph
             }
         }
 
-        private static void DepthFirstPrintRecursive(Dictionary<int, List<int>> adjList, int source)
+        public static void DepthFirstPrintRecursive(Dictionary<int, List<int>> adjList, int source)
         {
             Console.WriteLine(source);
             foreach (var neighbour in adjList[source])
@@ -47,9 +48,8 @@ namespace graph
             }
         }
 
-        public static void BreadthWise(int n, int[][] edges)
+        public static void BreadthWise(Dictionary<int, List<int>> adjList, int source)
         {
-            var adjList = CreateGraph(n, edges);
             // Take the first [0] as starting point
             int currentVertex = 0;
             Queue<int> bfs = new Queue<int>();
