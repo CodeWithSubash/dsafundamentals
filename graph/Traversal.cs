@@ -8,22 +8,6 @@ namespace graph
 {
     public class Traversal
     {
-        public static Dictionary<int, List<int>> GetGraph(int n, int[][] edges)
-        {
-            // construct the dictionary of each nodes with empty edges
-            Dictionary<int, List<int>> data = new Dictionary<int, List<int>>();
-            for (int i = 0; i < n; i++)
-            {
-                data.Add(i, new List<int>());
-            }
-            foreach (var edge in edges)
-            {
-                data[edge[0]].Add(edge[1]);
-                //data[edge[1]].Add(edge[0]);
-            }
-            return data;
-        }
-
         public static void DepthFirstPrint(Dictionary<int, List<int>> adjList, int source)
         {
             Stack<int> bfs = new Stack<int>();
@@ -50,10 +34,8 @@ namespace graph
 
         public static void BreadthWise(Dictionary<int, List<int>> adjList, int source)
         {
-            // Take the first [0] as starting point
-            int currentVertex = 0;
             Queue<int> bfs = new Queue<int>();
-            bfs.Enqueue(currentVertex);
+            bfs.Enqueue(source);
             while (bfs.Count > 0)
             {
                 var current = bfs.Dequeue();
