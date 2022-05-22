@@ -43,9 +43,11 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="ConnectedComponents.cs" />
     <Compile Include="Graph.cs" />
     <Compile Include="GraphHelper.cs" />
     <Compile Include="HasPath.cs" />
+    <Compile Include="LargestConnectedComponent.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Traversal.cs" />
