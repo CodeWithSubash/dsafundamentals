@@ -13,6 +13,8 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "sorting", "sorting\sorting.
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "tree", "tree\tree.csproj", "{D4627307-F04A-4ECA-99F4-DF8DE69FF4CA}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "dsa.tests", "dsa.tests\dsa.tests.csproj", "{62337983-C107-4A43-AB44-200F3B80E76F}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -39,6 +41,10 @@ Global
 		{D4627307-F04A-4ECA-99F4-DF8DE69FF4CA}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{D4627307-F04A-4ECA-99F4-DF8DE69FF4CA}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{D4627307-F04A-4ECA-99F4-DF8DE69FF4CA}.Release|Any CPU.Build.0 = Release|Any CPU
+		{62337983-C107-4A43-AB44-200F3B80E76F}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{62337983-C107-4A43-AB44-200F3B80E76F}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{62337983-C107-4A43-AB44-200F3B80E76F}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{62337983-C107-4A43-AB44-200F3B80E76F}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
