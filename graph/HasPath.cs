@@ -72,7 +72,7 @@ namespace graph
 
         public static bool Execute_DFS_Undirected(Dictionary<int, List<int>> adjList, int source, int destination, HashSet<int> visited)
         {
-            if(visited.Contains(source))
+            if (visited.Contains(source))
             {
                 return false;
             }
