@@ -29,9 +29,9 @@ namespace graph
 
         public static void DisplayAdjacencyList(Dictionary<int, List<int>> data)
         {
-            foreach(var kvp in data)
+            foreach (var kvp in data)
             {
-                Console.WriteLine($"{kvp.Key} : [{string.Join(",",kvp.Value)}]");
+                Console.WriteLine($"{kvp.Key} : [{string.Join(",", kvp.Value)}]");
             }
         }
     }

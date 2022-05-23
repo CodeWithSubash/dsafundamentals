@@ -16,15 +16,64 @@ namespace graph
             // ExploreTraversalAlgorithms();
 
             // Problem1: Has Path Problem
-            // GraphHasPathProblem();
+            //GraphHasPathProblem();
 
             // Problem2: Connected Components Count
             //ConnectedComponentProblem();
 
-            // Problem2: Connected Components Count
-            LargestConnectedComponentProblem();
+            // Problem3: Connected Components Count
+            //LargestConnectedComponentProblem();
 
+            // Problem4: Shortest Path Between vertices
+            // ShortestPathProblem();
+
+            // Problem5: Count number of Islands
+            //IslandCountProblem();
+
+            // Problem6: Smallest Island
+            FindSmallestIsland();
             Console.Read();
+        }
+
+        private static void FindSmallestIsland()
+        {
+            char[][] grid = new[]
+            {
+              new[] {'w', 'l', 'w', 'w', 'l', 'w' },
+              new[] {'l', 'l', 'w', 'w', 'l','w'},
+              new[] {'w', 'l', 'w', 'w', 'w', 'w' },
+              new[] {'w', 'w', 'w', 'l', 'l','w'},
+              new[] {'w', 'w', 'w', 'l', 'l', 'w' },
+              new[] {'w', 'w', 'w', 'l', 'w','w'},
+            };
+            Console.WriteLine($"The smallest island size is: {SmallestIsland.SmallIslandAvailable(grid)}");
+        }
+
+        private static void IslandCountProblem()
+        {
+            char[][] grid = new[]
+            {
+              new[] {'1', '1', '1', '1', '0' },
+              new[] {'1', '1', '0', '1', '0'},
+              new[] {'1', '1', '0', '0', '0'},
+              new[] {'0', '0', '0', '0', '1'}
+            };
+            Console.WriteLine($"The number of islands are: {IslandCounter.NumIslands(grid)}");
+        }
+
+        private static void ShortestPathProblem()
+        {
+            // Source: https://structy.net/problems/shortest-path
+            var edgeArray = new[] { new[] { 0, 1 }, new[] { 1, 2 }, new[] { 2, 3 }, new[] { 3, 4 }, new[] { 4, 0 } };
+            (int source, int destination) = (0, 3);
+            var result = ShortestPath.FindShortestPath(5, edgeArray, source, destination);
+            Console.WriteLine($"The path distance between {source} to {destination} is {result}");
+
+            // Source: https://structy.net/problems/shortest-path
+            edgeArray = new[] { new[] { 0, 2 }, new[] { 0, 1 }, new[] { 2, 1 }, new[] { 2, 3 }, new[] { 1, 3 }, new[] { 4, 3 }, new[] { 6, 5 } };
+            (source, destination) = (1, 6);
+            result = ShortestPath.FindShortestPath(7, edgeArray, source, destination);
+            Console.WriteLine($"The path distance between {source} to {destination} is {result}");
         }
 
         private static void LargestConnectedComponentProblem()
