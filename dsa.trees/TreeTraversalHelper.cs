@@ -1,51 +1,37 @@
-﻿using System;
-using System.Collections.Generic;
+﻿using dsa.core;
 
-namespace tree
+namespace dsa.trees
 {
-    public class Node
+    //Ref: https://iq.opengenus.org/binary-tree-traversals-inorder-preorder-postorder/
+    public static class TreeTraversalHelper
     {
-        public int Data { get; set; }
-        public Node Left { get; set; }
-        public Node Right { get; set; }
-        public int Level { get; set; }
-
-        public Node Parent { get; set; }
-
-        public Node(int Data=0)
+        public static void Traverse(TreeNode node, TreeTraversal direction = TreeTraversal.InTraversal)
         {
-            this.Data = Data;
-            Left = null;
-            Right = null;
-        }
-
-        public void Traverse(TreeTraversal dir = TreeTraversal.InTraversal)
-        {
-            Console.Write($"{Environment.NewLine}{dir}: ");
-            switch (dir)
+            Console.Write($"\n{direction}:\n");
+            switch (direction)
             {
                 case TreeTraversal.PreTraversal:
-                    PreTraversal(this);
+                    PreTraversal(node);
                     break;
                 case TreeTraversal.PreTraversal_Iterative:
-                    PreTraversalIterative(this);
+                    PreTraversalIterative(node);
                     break;
                 case TreeTraversal.PostTraversal:
-                    PostTraversal(this);
+                    PostTraversal(node);
                     break;
                 case TreeTraversal.BFSTraversal:
-                    BFSTraversal(this);
+                    BFSTraversal(node);
                     break;
                 case TreeTraversal.BFSTraversalWithLabel:
-                    BFSTraversalWithLevel(this);
+                    BFSTraversalWithLevel(node);
                     break;
                 default:
-                    InTraversal(this);
+                    InTraversal(node);
                     break;
             }
         }
 
-        private void InTraversal(Node node)
+        public static void InTraversal(TreeNode? node)
         {
             if (node == null)
             {
@@ -56,7 +42,7 @@ namespace tree
             InTraversal(node.Right);
         }
 
-        private void PreTraversal(Node node)
+        public static void PreTraversal(TreeNode? node)
         {
             if (node == null)
             {
@@ -67,7 +53,7 @@ namespace tree
             PreTraversal(node.Right);
         }
 
-        private void PostTraversal(Node node)
+        public static void PostTraversal(TreeNode? node)
         {
             if (node == null)
             {
@@ -78,17 +64,17 @@ namespace tree
             Visit(node);
         }
 
-        private void PreTraversalIterative(Node node)
+        private static void PreTraversalIterative(TreeNode? node)
         {
             if (node == null)
             {
                 return;
             }
-            Stack<Node> stack = new Stack<Node>();
+            var stack = new Stack<TreeNode>();
             stack.Push(node);
             while (stack.Count > 0)
             {
-                Node current = stack.Pop();
+                TreeNode current = stack.Pop();
                 Visit(current);
                 if (current.Right != null)
                     stack.Push(current.Right);
@@ -97,13 +83,13 @@ namespace tree
             }
         }
 
-        private void BFSTraversal(Node root)
+        private static void BFSTraversal(TreeNode root)
         {
-            Queue<Node> q = new Queue<Node>();
+            var q = new Queue<TreeNode>();
             q.Enqueue(root);
             while (q.Count > 0)
             {
-                Node current = q.Dequeue();
+                TreeNode current = q.Dequeue();
                 Visit(current);
                 if (current.Left != null)
                 {
@@ -116,15 +102,15 @@ namespace tree
             }
         }
 
-        private void BFSTraversalWithLevel(Node root)
+        private static void BFSTraversalWithLevel(TreeNode root)
         {
-            SetLevels(root, 1);
-            Queue<Node> q = new Queue<Node>();
+            root.SetLevels(1);
+            var q = new Queue<TreeNode>();
             q.Enqueue(root);
             int currentLevel = 1;
             while (q.Count > 0)
             {
-                Node current = q.Dequeue();
+                TreeNode current = q.Dequeue();
                 if (current.Level > currentLevel)
                 {
                     Console.WriteLine();
@@ -142,44 +128,10 @@ namespace tree
             }
         }
 
-        public void Visualize(int indent = 0, char child = '0')
+        private static void Visit(TreeNode root)
         {
-            // Print me
-            Console.WriteLine($"{new string(' ', indent * 2)}{child}:{this.Data}");
-            if (this.Left != null)
-            {
-                this.Left.Visualize(indent + 1, 'L');
-            }
-            if (this.Right != null)
-            {
-                this.Right.Visualize(indent + 1, 'R');
-            }
+            Console.Write(root.Value + "-");
         }
 
-        private void SetLevels(Node root, int i)
-        {
-            if (root == null)
-                return;
-            root.Level = i;
-            if (root.Left != null)
-                SetLevels(root.Left, i + 1);
-            if (root.Left != null)
-                SetLevels(root.Right, i + 1);
-        }
-
-        private void Visit(Node root)
-        {
-            Console.Write(root.Data + "-");
-        }
-    }
-
-    public enum TreeTraversal
-    {
-        PreTraversal,
-        InTraversal,
-        PostTraversal,
-        PreTraversal_Iterative,
-        BFSTraversal,
-        BFSTraversalWithLabel
     }
 }

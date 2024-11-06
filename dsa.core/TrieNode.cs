@@ -1,16 +1,13 @@
-﻿using System;
-using System.Collections.Generic;
-
-namespace tree
+﻿namespace dsa.core
 {
     public class TrieNode
     {
         public string Name { get; set; }
         public string Title { get; set; }
-        public TrieNode Parent { get; set; }
+        public TrieNode? Parent { get; set; }
         public List<TrieNode> Children { get; set; }
 
-        public TrieNode(string name, string title=null)
+        public TrieNode(string name, string title = null)
         {
             Name = name;
             Title = title;
@@ -18,15 +15,15 @@ namespace tree
             Children = new List<TrieNode>();
         }
 
-        internal int FindHeightOf(string v)
+        public int FindHeightOf(string v)
         {
             Queue<TrieNode> queue = new Queue<TrieNode>();
             queue.Enqueue(this);
             int height = 0;
-            while(queue.Count >0)
+            while (queue.Count > 0)
             {
                 Queue<TrieNode> childQueue = new Queue<TrieNode>();
-                foreach(TrieNode t in queue)
+                foreach (TrieNode t in queue)
                 {
                     if (t.Name.Equals(v))
                     {
@@ -45,14 +42,14 @@ namespace tree
 
         public void AddChildren(List<TrieNode> childs)
         {
-            foreach(var child in childs)
+            foreach (var child in childs)
             {
                 child.Parent = this;
-                this.Children.Add(child);
+                Children.Add(child);
             }
         }
 
-        public void ShowAll()
+        public void Display()
         {
             TrieNode first = this;
             Queue<TrieNode> names = new Queue<TrieNode>();
@@ -69,6 +66,21 @@ namespace tree
                     current?.Children?.ForEach(c => names.Enqueue(c));
                 }
                 level++;
+            }
+        }
+
+        public void DisplayNicer()
+        {
+            DisplayNicerInternal(this, "", true);
+        }
+
+        private void DisplayNicerInternal(TrieNode node, string prefix, bool isLast)
+        {
+            Console.WriteLine($"{prefix}{(isLast ? "└── " : "├── ")}{node.Name}{(string.IsNullOrEmpty(node.Title) ? "" : $" ({node.Title})")}");
+
+            for (int i = 0; i < node.Children.Count; i++)
+            {
+                DisplayNicerInternal(node.Children[i], prefix + (isLast ? "    " : "│   "), i == node.Children.Count - 1);
             }
         }
     }

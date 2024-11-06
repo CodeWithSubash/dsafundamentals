@@ -13,10 +13,10 @@ namespace search
         }
         public bool Search(int x)
         {
-            return binary_search(x, 0, arr.Length);
+            return SearchIterative(x, 0, arr.Length-1);
         }
 
-        private bool binary_search(int x, int min, int max)
+        public bool SearchRecursive(int x, int min, int max)
         {
             if(min>=max)
             {
@@ -31,14 +31,31 @@ namespace search
             }
             else if (mid > x)
             {
-                return binary_search(x, min, midIndex);
+                return SearchRecursive(x, min, midIndex);
             }
             else
             {
-                return binary_search(x, midIndex+1, max);   //NOTE: the midIndex for the top part is incremented by 1
+                return SearchRecursive(x, midIndex+1, max);   //NOTE: the midIndex for the top part is incremented by 1
             }
         }
 
-
+        public bool SearchIterative(int x, int left, int right)
+        {
+            while(left<=right)
+            {
+                var mid = left + (right-left) / 2;
+                if (mid == x) { return true;}
+                if(mid<x)
+                {
+                    left = mid + 1;
+                }
+                else
+                {
+                    right = mid - 1;
+                }
+             
+            }
+            return false;
+        }
     }
 }
