@@ -1,7 +1,7 @@
 ﻿
 Microsoft Visual Studio Solution File, Format Version 12.00
-# Visual Studio Version 16
-VisualStudioVersion = 16.0.30804.86
+# Visual Studio Version 17
+VisualStudioVersion = 17.4.33103.184
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "graph", "graph\graph.csproj", "{E254D055-2B5E-4935-B6DC-3AACE184010B}"
 EndProject
@@ -11,9 +11,9 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "search", "search\search.csp
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "sorting", "sorting\sorting.csproj", "{9C7931D1-2A8C-4417-85D1-77E83F08D847}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "tree", "tree\tree.csproj", "{D4627307-F04A-4ECA-99F4-DF8DE69FF4CA}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "dsa.core", "dsa.core\dsa.core.csproj", "{1F9648F8-46C9-4D2D-87AC-E6EF835D974A}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "dsa.tests", "dsa.tests\dsa.tests.csproj", "{62337983-C107-4A43-AB44-200F3B80E76F}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "dsa.trees", "dsa.trees\dsa.trees.csproj", "{38735893-2CAA-4D02-9394-8CA0F9AE1286}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -37,14 +37,14 @@ Global
 		{9C7931D1-2A8C-4417-85D1-77E83F08D847}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{9C7931D1-2A8C-4417-85D1-77E83F08D847}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{9C7931D1-2A8C-4417-85D1-77E83F08D847}.Release|Any CPU.Build.0 = Release|Any CPU
-		{D4627307-F04A-4ECA-99F4-DF8DE69FF4CA}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{D4627307-F04A-4ECA-99F4-DF8DE69FF4CA}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{D4627307-F04A-4ECA-99F4-DF8DE69FF4CA}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{D4627307-F04A-4ECA-99F4-DF8DE69FF4CA}.Release|Any CPU.Build.0 = Release|Any CPU
-		{62337983-C107-4A43-AB44-200F3B80E76F}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{62337983-C107-4A43-AB44-200F3B80E76F}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{62337983-C107-4A43-AB44-200F3B80E76F}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{62337983-C107-4A43-AB44-200F3B80E76F}.Release|Any CPU.Build.0 = Release|Any CPU
+		{1F9648F8-46C9-4D2D-87AC-E6EF835D974A}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{1F9648F8-46C9-4D2D-87AC-E6EF835D974A}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{1F9648F8-46C9-4D2D-87AC-E6EF835D974A}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{1F9648F8-46C9-4D2D-87AC-E6EF835D974A}.Release|Any CPU.Build.0 = Release|Any CPU
+		{38735893-2CAA-4D02-9394-8CA0F9AE1286}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{38735893-2CAA-4D02-9394-8CA0F9AE1286}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{38735893-2CAA-4D02-9394-8CA0F9AE1286}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{38735893-2CAA-4D02-9394-8CA0F9AE1286}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
