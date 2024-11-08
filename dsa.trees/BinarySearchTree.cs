@@ -19,38 +19,30 @@ namespace dsa.trees
             if (data.Length < 1)
             {
                 root = null;
+                return;
             }
-            root = new TreeNode(data[0]);
-            for (int i = 1; i < data.Length; i++)
+            root = null;
+            for (int i = 0; i < data.Length; i++)
             {
-                InsertInBST(root, data[i]);
+                root = InsertInBST(root, data[i]);
             }
         }
 
-        private static void InsertInBST(TreeNode node, int data)
+        private static TreeNode InsertInBST(TreeNode? node, int data)
         {
-            if (data > node.Value)
+            if (node == null)
             {
-                if (node.Right != null)
-                {
-                    InsertInBST(node.Right, data);
-                }
-                else
-                {
-                    node.Right = new TreeNode(data);
-                }
+                return new TreeNode(data);
+            }
+            if (data < node.Value)
+            {
+                node.Left = InsertInBST(node.Left, data);
             }
             else
             {
-                if (node.Left != null)
-                {
-                    InsertInBST(node.Left, data);
-                }
-                else
-                {
-                    node.Left = new TreeNode(data);
-                }
+                node.Right = InsertInBST(node.Right, data);
             }
+            return node;
         }
 
         public new bool Search(int value)
